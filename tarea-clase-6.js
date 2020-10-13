@@ -10,10 +10,22 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 
 const $botonSiguiente = document.querySelector('#siguiente');
 
+
 $botonSiguiente.onclick = function() {
     const cantidadIntegrantes = Number(document.querySelector('#cantidad-integrantes-familia').value);
-    
+    mostrarCantidadIntegrantes();
     return false;
+}
+
+function mostrarCantidadIntegrantes () {
+    document.querySelector('#lista-integrantes').className = "";
+}
+
+function crearIntegrantes (cantidadIntegrantes) {
+
+    for (let i = 0; i < cantidadIntegrantes; i++) {
+
+    }
 }
 
 /*

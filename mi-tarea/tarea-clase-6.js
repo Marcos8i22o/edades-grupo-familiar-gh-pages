@@ -6,8 +6,15 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad
 Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
 */
 
-prompt("hola");
+//prompt("hola");
 
+const $botonSiguiente = document.querySelector('#siguiente');
+
+$botonSiguiente.onclick = function() {
+    const cantidadIntegrantes = Number(document.querySelector('#cantidad-integrantes-familia').value);
+    
+    return false;
+}
 
 /*
 TAREA:

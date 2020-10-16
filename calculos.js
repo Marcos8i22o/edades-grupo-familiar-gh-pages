@@ -1,7 +1,33 @@
 function calcular(edadesIntegrantes) {
-  console.log(calcularMenorEdad(edadesIntegrantes));
-  console.log( calcularMayorEdad(edadesIntegrantes));
-  // calcularPromedioEdades();
+  calcularMenorEdad(edadesIntegrantes);
+  calcularMayorEdad(edadesIntegrantes);
+  calcularPromedioEdades(edadesIntegrantes);
 }
 
-function calcularPromedioEdades() {}
+function calcularMenorEdad(edadesIntegrantes) {
+  let min = Number(edadesIntegrantes[0].value);
+  for (let i = 1; i < edadesIntegrantes.length; i++) {
+    if (Number(edadesIntegrantes[i].value) < min) {
+      min = Number(edadesIntegrantes[i].value);
+    }
+  }
+  return min;
+}
+
+function calcularMayorEdad(edadesIntegrantes) {
+  let max = Number(edadesIntegrantes[0].value);
+  for (let i = 1; i < edadesIntegrantes.length; i++) {
+    if (Number(edadesIntegrantes[i].value) > max) {
+      max = Number(edadesIntegrantes[i].value);
+    }
+  }
+  return max;
+}
+
+function calcularPromedioEdades(edadesIntegrantes) {
+    let suma = 0;
+    for (let i = 0; i < edadesIntegrantes.length; i++) {
+        suma += Number(edadesIntegrantes[i].value);
+    }
+    return suma / edadesIntegrantes.length;
+}

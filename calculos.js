@@ -3,3 +3,5 @@ function calcular(edadesIntegrantes) {
   console.log( calcularMayorEdad(edadesIntegrantes));
   // calcularPromedioEdades();
 }
+
+function calcularPromedioEdades() {}

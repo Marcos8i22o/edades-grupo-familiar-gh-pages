@@ -8,12 +8,50 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 
 //prompt("hola");
 
-const $botonSiguiente = document.querySelector('#siguiente');
+const $botonSiguiente = document.querySelector("#siguiente");
+const $botonEmpezarDeNuevo = document.querySelector("#resetear");
 
+const $listaIntegrantes = document.querySelector("#lista-integrantes");
+
+$botonSiguiente.onclick = function () {
+  const cantidadIntegrantes = Number(
+    document.querySelector("#cantidad-integrantes-familia").value
+  );
+  crearIntegrantes(cantidadIntegrantes);
+  mostrarCantidadIntegrantes();
+  return false;
+};
+
+$botonEmpezarDeNuevo.onclick = function () {
+  borrarIntegrantes();
+  return false;
+};
+
+function mostrarCantidadIntegrantes() {
+  $listaIntegrantes.className = "";
 }
 
+function crearIntegrantes(cantidadIntegrantes) {
+  for (let i = 0; i < cantidadIntegrantes; i++) {
+    const $EdadIntegrante = document.createElement("label");
+    const textoLabel = document.createTextNode(
+      `Edad del integrante #${i + 1}: `
+    );
+    const $edad = document.createElement("input");
+    $edad.type = "number";
+    $edad.id = "edad-integrante";
+    $EdadIntegrante.appendChild(textoLabel);
+    $listaIntegrantes.appendChild($EdadIntegrante);
+    $listaIntegrantes.appendChild($edad);
+
+  }
 }
 
+function borrarIntegrantes() {
+  while ($listaIntegrantes.firstChild) {
+    $listaIntegrantes.removeChild($listaIntegrantes.firstChild);
+  }
+  document.querySelector('#cantidad-integrantes-familia').value = "";
 }
 
 /*

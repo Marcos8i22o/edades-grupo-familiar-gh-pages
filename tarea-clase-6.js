@@ -10,7 +10,7 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 
 const $botonSiguiente = document.querySelector("#siguiente");
 const $botonEmpezarDeNuevo = document.querySelector("#resetear");
-
+const $botonCalcular = document.querySelector('#calcular');
 const $listaIntegrantes = document.querySelector("#lista-integrantes");
 
 $botonSiguiente.onclick = function () {
@@ -29,6 +29,12 @@ $botonEmpezarDeNuevo.onclick = function () {
   return false;
 };
 
+$botonCalcular.onclick = function () {
+  const edadesIntegrantes = document.querySelectorAll('.edades-integrantes');
+
+  calcular(edadesIntegrantes);
+}
+
 function mostrarCantidadIntegrantes() {
   $listaIntegrantes.className = "";
 }
@@ -40,8 +46,11 @@ function crearIntegrantes(cantidadIntegrantes) {
       `Edad del integrante #${i + 1}: `
     );
     const $edad = document.createElement("input");
+    
     $edad.type = "number";
     $edad.id = "edad-integrante";
+    $edad.className = "edades-integrantes";
+    
     $EdadIntegrante.appendChild(textoLabel);
     $listaIntegrantes.appendChild($EdadIntegrante);
     $listaIntegrantes.appendChild($edad);

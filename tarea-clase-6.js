@@ -14,6 +14,7 @@ const $botonEmpezarDeNuevo = document.querySelector("#resetear");
 const $listaIntegrantes = document.querySelector("#lista-integrantes");
 
 $botonSiguiente.onclick = function () {
+  $botonSiguiente.disabled = true;
   const cantidadIntegrantes = Number(
     document.querySelector("#cantidad-integrantes-familia").value
   );
@@ -24,6 +25,7 @@ $botonSiguiente.onclick = function () {
 
 $botonEmpezarDeNuevo.onclick = function () {
   borrarIntegrantes();
+  habilitarBotonSiguiente();
   return false;
 };
 
@@ -52,6 +54,10 @@ function borrarIntegrantes() {
     $listaIntegrantes.removeChild($listaIntegrantes.firstChild);
   }
   document.querySelector('#cantidad-integrantes-familia').value = "";
+}
+
+function habilitarBotonSiguiente () {
+  $botonSiguiente.disabled = false;
 }
 
 /*

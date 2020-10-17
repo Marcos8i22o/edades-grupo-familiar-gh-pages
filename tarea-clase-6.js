@@ -10,9 +10,9 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 
 const $botonSiguiente = document.querySelector("#siguiente");
 const $botonEmpezarDeNuevo = document.querySelector("#resetear");
-const $botonCalcular = document.querySelector('#calcular');
+const $botonCalcular = document.querySelector("#calcular");
 const $listaIntegrantes = document.querySelector("#lista-integrantes");
-const $resultados = document.querySelector('#resultados');
+const $resultados = document.querySelector("#resultados");
 
 $botonSiguiente.onclick = function () {
   $botonSiguiente.disabled = true;
@@ -32,11 +32,11 @@ $botonEmpezarDeNuevo.onclick = function () {
 };
 
 $botonCalcular.onclick = function () {
-  const edadesIntegrantes = document.querySelectorAll('.edades-integrantes');
+  const edadesIntegrantes = document.querySelectorAll(".edades-integrantes");
 
   calcular(edadesIntegrantes);
-  mostrarResultados();
-}
+  mostrarResultados(edadesIntegrantes);
+};
 
 function mostrarCantidadIntegrantes() {
   $listaIntegrantes.className = "";
@@ -49,15 +49,14 @@ function crearIntegrantes(cantidadIntegrantes) {
       `Edad del integrante #${i + 1}: `
     );
     const $edad = document.createElement("input");
-    
+
     $edad.type = "number";
     $edad.id = "edad-integrante";
     $edad.className = "edades-integrantes";
-    
+
     $EdadIntegrante.appendChild(textoLabel);
     $listaIntegrantes.appendChild($EdadIntegrante);
     $listaIntegrantes.appendChild($edad);
-
   }
 }
 
@@ -65,20 +64,38 @@ function borrarIntegrantes() {
   while ($listaIntegrantes.firstChild) {
     $listaIntegrantes.removeChild($listaIntegrantes.firstChild);
   }
-  document.querySelector('#cantidad-integrantes-familia').value = "";
+  document.querySelector("#cantidad-integrantes-familia").value = "";
 }
 
-function habilitarBotonSiguiente () {
+function habilitarBotonSiguiente() {
   $botonSiguiente.disabled = false;
 }
 
-function mostrarResultados() {
-  $resultados.className = '';
+function mostrarResultados(edadesIntegrantes) {
+  $resultados.className = "";
+
+  const $mayorIntegrante = document.querySelector("#mayor-integrante");
+  const $menorIntegrante = document.querySelector("#menor-integrante");
+  const $promedioEdades = document.querySelector("#promedio-edades-familia");
+
+  mostrarEdades("mayor-integrante", calcularMayorEdad(edadesIntegrantes));
+  mostrarEdades("menor-integrante", calcularMenorEdad(edadesIntegrantes));
+  mostrarEdades(
+    "promedio-edades-familia",
+    calcularPromedioEdades(edadesIntegrantes)
+  );
+}
+
+function mostrarEdades(mayorIntegrante, calculo) {
+  document.querySelector(
+    `#${mayorIntegrante}`
+  ).textContent += `${calculo} años.`;
 }
 
 function ocultarResultados() {
-  $resultados.className = 'oculto';
+  $resultados.className = "oculto";
 }
+
 /*
 TAREA:
 Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar el salario anual de cada integrante de la familia que trabaje.

@@ -5,9 +5,9 @@ function calcular(edadesIntegrantes) {
 }
 
 function calcularMenorEdad(edadesIntegrantes) {
-  let min = Number(edadesIntegrantes[0].value);
-  for (let i = 1; i < edadesIntegrantes.length; i++) {
-    if (Number(edadesIntegrantes[i].value) < min) {
+  let min;
+  for (let i = 0; i < edadesIntegrantes.length; i++) {
+    if (!min || Number(edadesIntegrantes[i].value) < min) {
       min = Number(edadesIntegrantes[i].value);
     }
   }

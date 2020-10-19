@@ -13,30 +13,6 @@ const $botonCalcular = document.querySelector("#calcular");
 const $listaIntegrantes = document.querySelector("#lista-integrantes");
 const $resultados = document.querySelector("#resultados");
 
-$botonSiguiente.onclick = function () {
-  $botonSiguiente.disabled = true;
-  const cantidadIntegrantes = Number(
-    document.querySelector("#cantidad-integrantes-familia").value
-  );
-  crearIntegrantes(cantidadIntegrantes);
-  mostrarCantidadIntegrantes();
-  return false;
-};
-
-$botonEmpezarDeNuevo.onclick = function () {
-  borrarIntegrantes();
-  habilitarBotonSiguiente();
-  ocultarResultados();
-  return false;
-};
-
-$botonCalcular.onclick = function () {
-  const edadesIntegrantes = document.querySelectorAll(".edades-integrantes");
-
-  calcular(edadesIntegrantes);
-  mostrarResultados(edadesIntegrantes);
-};
-
 function mostrarCantidadIntegrantes() {
   $listaIntegrantes.className = "";
 }
@@ -95,4 +71,26 @@ function ocultarResultados() {
   $resultados.className = "oculto";
 }
 
+$botonSiguiente.onclick = function () {
+  $botonSiguiente.disabled = true;
+  const cantidadIntegrantes = Number(
+    document.querySelector("#cantidad-integrantes-familia").value
+  );
+  crearIntegrantes(cantidadIntegrantes);
+  mostrarCantidadIntegrantes();
+  return false;
+};
 
+$botonEmpezarDeNuevo.onclick = function () {
+  borrarIntegrantes();
+  habilitarBotonSiguiente();
+  ocultarResultados();
+  return false;
+};
+
+$botonCalcular.onclick = function () {
+  const edadesIntegrantes = document.querySelectorAll(".edades-integrantes");
+
+  calcular(edadesIntegrantes);
+  mostrarResultados(edadesIntegrantes);
+};

@@ -48,10 +48,6 @@ function habilitarBotonSiguiente() {
 function mostrarResultados(edadesIntegrantes) {
   $resultados.className = "";
 
-  const $mayorIntegrante = document.querySelector("#mayor-integrante");
-  const $menorIntegrante = document.querySelector("#menor-integrante");
-  const $promedioEdades = document.querySelector("#promedio-edades-familia");
-
   mostrarEdades("mayor-integrante", calcularMayorEdad(edadesIntegrantes));
   mostrarEdades("menor-integrante", calcularMenorEdad(edadesIntegrantes));
   mostrarEdades(

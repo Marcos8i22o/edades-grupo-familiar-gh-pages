@@ -1,0 +1,23 @@
+{
+  "name": "calculadora_edades",
+  "version": "1.0.0",
+  "description": "Ingrese la cantidad de miembros de una familia, y se calculará:",
+  "main": "calculos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcos8i22o/edades-grupo-familiar-gh-pages.git"
+  },
+  "author": "Marcos Jinno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcos8i22o/edades-grupo-familiar-gh-pages/issues"
+  },
+  "homepage": "https://github.com/Marcos8i22o/edades-grupo-familiar-gh-pages#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1"
+  }
+}

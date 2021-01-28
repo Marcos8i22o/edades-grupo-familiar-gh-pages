@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <title>Edades del grupo familiar</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <form>
-        <h3>Bienvenido, ¿cuántos integrantes de la familia desea agregar?</h3>
-        <input type="number" id="cantidad-integrantes-familia">
-        <button type="submit" id="siguiente">Siguiente</button>
-        <br>
-
-
-        <br>
-        <div id="lista-integrantes" class="oculto">
-
+      <div class="container-fluid">
+        <div class="row bg-dark">
+          <div class="col-5">
+            <p class="h4 text-white">
+              Ingrese la cantidad de integrantes familiares:
+            </p>
+          </div>
+          <div class="col-3 form-floating">
+            <input
+              type="number"
+              class="form-control"
+              id="cantidad-integrantes-familia"
+            />
+          </div>
+          <div class="col-2">
+            <button type="submit" class="btn btn-outline-info" id="siguiente">
+              Siguiente
+            </button>
+          </div>
+          <div class="col-2">
+            <button type="reset" class="btn btn-outline-danger" id="resetear">
+              Empezar de nuevo
+            </button>
+          </div>
         </div>
 
-        <button type="reset" id="resetear">Empezar de nuevo</button>
-        <button type="button" id="calcular">Calcular</button>
-
-        <div id="resultados" class="oculto">
-            <p>El mayor integrante de la familia tiene: <strong id="mayor-integrante"></strong> </p>
-            <p>El menor integrante de la familia tiene: <strong id="menor-integrante"></strong> </p>
-            <p>El promedio de edades del grupo familiar es: <strong id="promedio-edades-familia"></strong> </p>
+        <div class="row">
+          <button
+            type="button"
+            class="btn btn-primary btn-block btn-lg"
+            id="calcular"
+          >
+            Calcular
+          </button>
         </div>
+      </div>
+    
+      <div class="row justify-content-around bg-warning">
+        <div class="col-12 oculto form-row form-group" id="lista-integrantes"></div>
+
+        <div id="resultados" class="col-12 oculto bg-info mt-3">
+          <p>
+            El mayor integrante de la familia tiene:
+            <strong id="mayor-integrante"></strong>
+          </p>
+          <p>
+            El menor integrante de la familia tiene:
+            <strong id="menor-integrante"></strong>
+          </p>
+          <p>
+            El promedio de edades del grupo familiar es:
+            <strong id="promedio-edades-familia"></strong>
+          </p>
+        </div>
+      </div>
     </form>
-
 
     <script src="calculos.js"></script>
     <script src="tarea-clase-6.js"></script>
     <script src="pruebas.js"></script>
-</body>
-
+  </body>
 </html>

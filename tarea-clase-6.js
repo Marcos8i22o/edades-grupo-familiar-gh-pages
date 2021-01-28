@@ -22,11 +22,13 @@ function crearIntegrantes(cantidadIntegrantes) {
     const textoLabel = document.createTextNode(
       `Edad del integrante #${i + 1}: `
     );
+    $EdadIntegrante.className = "col-auto mt-2 text-success";
+
     const $edad = document.createElement("input");
 
     $edad.type = "number";
     $edad.id = "edad-integrante";
-    $edad.className = "edades-integrantes";
+    $edad.className = "edades-integrantes form-control";
 
     $EdadIntegrante.appendChild(textoLabel);
     $listaIntegrantes.appendChild($EdadIntegrante);
@@ -39,6 +41,10 @@ function borrarIntegrantes() {
     $listaIntegrantes.removeChild($listaIntegrantes.firstChild);
   }
   document.querySelector("#cantidad-integrantes-familia").value = "";
+
+  document.querySelector(`#mayor-integrante`).textContent = "";
+  document.querySelector(`#menor-integrante`).textContent = "";
+  document.querySelector(`#promedio-edades-familia`).textContent = "";
 }
 
 function habilitarBotonSiguiente() {
@@ -56,10 +62,8 @@ function mostrarResultados(edadesIntegrantes) {
   );
 }
 
-function mostrarEdades(mayorIntegrante, calculo) {
-  document.querySelector(
-    `#${mayorIntegrante}`
-  ).textContent += `${calculo} años.`;
+function mostrarEdades(integrante, calculo) {
+  document.querySelector(`#${integrante}`).textContent += `${calculo} años.`;
 }
 
 function ocultarResultados() {
